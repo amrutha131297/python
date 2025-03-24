@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Reputed Hospital{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Hero Section -->
+<div class="container text-center py-1">
+  <h1 class="fw-bold text-primary">Welcome to Reputed Hospital</h1>
+
+    <p class="lead text-muted">Providing quality healthcare with compassion and excellence.</p>
+    <hr class="mb-5">
+    
+</div>
+
+<!-- Carousel -->
+<div id="hospitalCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/car1.jpg' %}" class="d-block w-100 img-fluid" alt="Hospital Exterior">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/car2.jpg' %}" class="d-block w-100 img-fluid" alt="Doctors in Discussion">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/car3.jpg' %}" class="d-block w-100 img-fluid" alt="Patient Care">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#hospitalCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hospitalCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Services Section -->
+<div class="container text-center py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <h4 class="fw-bold text-primary">Emergency Care</h4>
+                <p class="text-muted">24/7 emergency services with expert medical staff.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <h4 class="fw-bold text-primary">Specialized Doctors</h4>
+                <p class="text-muted">Experienced specialists in various medical fields.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <h4 class="fw-bold text-primary">Modern Facilities</h4>
+                <p class="text-muted">State-of-the-art medical equipment and patient care.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

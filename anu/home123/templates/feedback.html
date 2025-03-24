@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Patient Feedback {% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #007bff, #6610f2); border-radius: 10px 10px 0 0;">
+                    <h3 class="fw-bold">📝 Share Your Feedback</h3>
+                    <p class="mb-0">We value your thoughts and strive to improve our services.</p>
+                </div>
+
+                <div class="card-body bg-light p-4">
+
+                    <!-- Alert Messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'home123:feedback' %}">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary fw-bold rounded-pill shadow-sm" style="background: #007bff; border: none; transition: 0.3s;">
+                                Submit Feedback
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

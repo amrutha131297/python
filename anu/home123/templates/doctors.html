@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Our Doctors{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center text-primary fw-bold">Meet Our Expert Doctors</h1>
+    <p class="text-center text-muted">Highly skilled professionals dedicated to your health and well-being.</p>
+    <hr class="mb-5">
+
+    <div class="row justify-content-center">
+        {% for d in dos %}
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card shadow-sm border-0 rounded-lg text-center" style="width: 14rem;">
+                <img src="{{ d.image.url }}" class="card-img-top rounded-top" style="height: 180px; object-fit: cover;" alt="{{ d.name }}">
+                <div class="card-body p-2">
+                    <h6 class="card-title text-dark fw-bold mb-1">Dr. {{ d.name }}</h6>
+                    <p class="card-text text-muted small">{{ d.specialization }}</p>
+                    <h6 class="card-title text-dark fw-bold mb-1">{{ d.department.dep_name }} Dept.</h6>
+                    <p class="card-text text-muted small">Qualification: {{ d.qualification }}</p>
+                    <p class="card-text text-muted small">Experience: {{ d.experience }} years</p>
+                    <p class="card-text text-muted small">Timings: {{d.timings }}</p>
+                    <p class="card-text text-muted small">Availability: {{ d.availability }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p class="text-muted">No doctors available at the moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
